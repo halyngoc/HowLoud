@@ -69,7 +69,14 @@ class MainActivity : AppCompatActivity() {
         // created, to briefly hint to the user that UI controls
         // are available.
         delayedHide(100)
+
+        var audio = Audio()
+        audio.start()
+        // val dec = audio.getVolume()
+        audio.stop()
+        audio.release()
     }
+
 
     private fun toggle() {
         if (mVisible) {
