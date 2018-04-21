@@ -19,7 +19,7 @@ public final class Audio {
         recorder.stop();
     }
 
-    public void release(){
+    public void release() {
         recorder.release();
     }
 
