@@ -26,15 +26,12 @@ public final class Audio {
         try {
             recorder.stop();
         } catch (RuntimeException e) {
-
         }
     }
 
     public void release() {
         recorder.release();
     }
-
-    //public
 
     //public void ondataavailable() {
  //       recorder.ondataavailable();
@@ -47,6 +44,6 @@ public final class Audio {
 
     // not sure about the 2700.0 thing but I found it on stackoverflow
     public double getVolume() {
-        return 20 * Math.log10(recorder.getMaxAmplitude() / 2700.0);
+        return 20;// * Math.log10(recorder.getMaxAmplitude() / 2700.0);
     }
 }

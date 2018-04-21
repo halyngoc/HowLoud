@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.view.View
+import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_main.*
 
 /**
@@ -72,7 +73,9 @@ class MainActivity : AppCompatActivity() {
 
         var audio = Audio()
         audio.start()
-        val dec = audio.getVolume()
+        var dec = audio.getVolume()
+        //val textView = findViewByID(R.id.fullscreen_content) as TextView
+        fullscreen_content.text = dec.toString()
         audio.stop()
         audio.release()
     }
