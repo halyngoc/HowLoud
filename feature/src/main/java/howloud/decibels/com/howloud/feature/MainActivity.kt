@@ -6,6 +6,8 @@ import android.os.Handler
 import android.view.View
 import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_main.*
+import org.jetbrains.anko.doAsync
+import org.jetbrains.anko.uiThread
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
@@ -71,13 +73,22 @@ class MainActivity : AppCompatActivity() {
         // are available.
         delayedHide(100)
 
+
         var audio = Audio()
         audio.start()
-        var dec = audio.getVolume()
+        doAsync {
+            while(true) {
+                Thread.sleep(1000)
+                var dec = audio.volume
+                uiThread {
+                    fullscreen_content.text = dec.toString()
+                }
+            }
+        }
         //val textView = findViewByID(R.id.fullscreen_content) as TextView
-        fullscreen_content.text = dec.toString()
-        audio.stop()
-        audio.release()
+//        fullscreen_content.text = dec.toString()
+//        audio.stop()
+//        audio.release()
     }
 
 
