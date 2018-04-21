@@ -23,8 +23,11 @@ public final class Audio {
     }
 
     public void stop() {
+        try {
+            recorder.stop();
+        } catch (RuntimeException e) {
 
-        recorder.stop();
+        }
     }
 
     public void release() {

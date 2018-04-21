@@ -72,7 +72,7 @@ class MainActivity : AppCompatActivity() {
 
         var audio = Audio()
         audio.start()
-        // val dec = audio.getVolume()
+        val dec = audio.getVolume()
         audio.stop()
         audio.release()
     }
